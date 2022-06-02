@@ -14,7 +14,7 @@ class PlayerGameObject extends WallGameObject {
         y: 0,
         y_direction: 1,
     }
-    update(elapsedTime) {
+    fixedUpdate(elapsedTime) {
         if(this.engine.inputCollector.key.has("ArrowRight")) {
             if (this.vector2d.x < this.velocity) {
                 if (this.vector2d.x_direction === -1)
@@ -53,11 +53,11 @@ class PlayerGameObject extends WallGameObject {
         }
 
         if (this.vector2d.x > 0)
-            this.vector2d.x -= 0.8 / elapsedTime;
+            this.vector2d.x -= (this.acceleration / 2) / elapsedTime;
         else this.vector2d.x = 0;
         
         if (this.vector2d.y > 0)
-            this.vector2d.y -= 0.8 / elapsedTime;
+            this.vector2d.y -= (this.acceleration / 2) / elapsedTime;
         else this.vector2d.y = 0;
         
         this.posX += this.vector2d.x * this.vector2d.x_direction;

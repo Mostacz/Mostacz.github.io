@@ -15,6 +15,10 @@ class GameObject {
      * @param {number} elapsedTime
      */
     update(elapsedTime) {}
+    /**
+     * @param {number} elapsedTime
+     */
+    fixedUpdate(elapsedTime) {}
 
 }
 

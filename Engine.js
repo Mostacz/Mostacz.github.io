@@ -19,7 +19,7 @@ class Engine {
     start(gameObjects) {
         gameObjects.forEach(obj => { 
             obj.engine = this;
-            obj.init(); 
+            obj.init();
         });
         let lastTime = 0;
         const gameLoop = () => {
@@ -31,7 +31,16 @@ class Engine {
             gameObjects.forEach(obj => { obj.draw(this.ctx); });
             requestAnimationFrame(gameLoop);
         };
+        let lastFixedTime = 0;
+        const fixedGameLoop = () => {
+            const currentTime = performance.now();
+            const elapsedTime = currentTime - lastFixedTime;
+            lastFixedTime = currentTime;
+            gameObjects.forEach(obj => { obj.fixedUpdate(elapsedTime); });
+            setTimeout(fixedGameLoop, 16.6666666667);
+        };
         gameLoop();
+        fixedGameLoop();
     }
 }
 
