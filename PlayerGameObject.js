@@ -10,29 +10,33 @@ class PlayerGameObject extends WallGameObject {
         x_direction: 1,
         y: 0,
         y_direction: 1,
-
     }
     update(elapsedTime) {
         if(this.engine.inputCollector.key.has("ArrowRight")) {
-            this.vector2d.x = 4;
+            if (this.vector2d.x < 4)
+                this.vector2d.x += 1.6 / elapsedTime;
             this.vector2d.x_direction = 1;
         }
         if(this.engine.inputCollector.key.has("ArrowLeft")) {
-            this.vector2d.x = 4;
+            if (this.vector2d.x < 4)
+                this.vector2d.x += 1.6 / elapsedTime;
             this.vector2d.x_direction = -1;
         }
         if(this.engine.inputCollector.key.has("ArrowUp")) {
-            this.vector2d.y = 4;
+            if (this.vector2d.y < 4)
+                this.vector2d.y += 1.6 / elapsedTime;
             this.vector2d.y_direction = -1;
         }
         if(this.engine.inputCollector.key.has("ArrowDown")) {
-            this.vector2d.y = 4;
+            if (this.vector2d.y < 4)
+                this.vector2d.y += 1.6 / elapsedTime;
             this.vector2d.y_direction = 1;
         }
 
-        if (this.vector2d.x > 0) 
+        if (this.vector2d.x > 0)
             this.vector2d.x -= 0.8 / elapsedTime;
         else this.vector2d.x = 0;
+        
         if (this.vector2d.y > 0)
             this.vector2d.y -= 0.8 / elapsedTime;
         else this.vector2d.y = 0;
