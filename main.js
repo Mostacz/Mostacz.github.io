@@ -1,9 +1,11 @@
 import { Engine } from "./Engine.js";
 import { WallGameObject } from "./WallGameObject.js";
 import { PlayerGameObject } from "./PlayerGameObject.js";
+import { Finish } from "./Finish.js";
 
 new Engine(document.querySelector("canvas")).start([
     new WallGameObject(0, 0, 200, 600, "blue"),
+    new WallGameObject(0, 600, 10, 100, "blue"),
     new WallGameObject(0, 700, 500, 200, "blue"),
     new WallGameObject(600, 600, 300, 150, "blue"),
     new WallGameObject(1000, 700, 600, 200, "blue"),
@@ -19,5 +21,6 @@ new Engine(document.querySelector("canvas")).start([
     new WallGameObject(400, 300, 250, 100, "blue"),
     new WallGameObject(400, 235, 60, 65, "blue"),
     new WallGameObject(500, 200, 200, 60, "blue"),
-    new PlayerGameObject(20, 640, 25, 25, "lime")
+    new Finish(250, 250, 100, 100),
+    new PlayerGameObject(20, 640, 25, 25)
 ]);

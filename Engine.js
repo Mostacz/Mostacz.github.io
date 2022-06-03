@@ -1,5 +1,6 @@
 import {GameObject} from "./GameObject.js";
 import {InputCollector} from "./InputCollector.js";
+import {TriggerRegistry} from "./TriggerRegistry.js";
 
 class Engine {
     /**
@@ -8,6 +9,7 @@ class Engine {
     constructor(canvas) {
         this.canvas = canvas;
         this.inputCollector = new InputCollector();
+        this.triggerRegistry = new TriggerRegistry();
         this.ctx = canvas.getContext("2d");
         this.ctxHeight = canvas.height;
         this.ctxWidth = canvas.width;

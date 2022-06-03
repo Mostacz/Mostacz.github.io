@@ -8,11 +8,13 @@ class WallGameObject extends GameObject {
         this.color = color;
     }
 
-    /**
-     * @param {number} elapsedTime
-     */
-    update(elapsedTime) {
-        
+    init() {
+        this.engine.triggerRegistry.prop = {
+            posX: this.posX,
+            posY: this.posY,
+            height: this.height,
+            width: this.width
+        };
     }
 
     /**
