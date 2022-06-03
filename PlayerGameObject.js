@@ -23,7 +23,7 @@ class PlayerGameObject extends GameObject {
         y_direction: 1,
     }
     fixedUpdate(elapsedTime) {
-        if(this.engine.inputCollector.key.has("ArrowRight")) {
+        if(this.engine.inputCollector.key.has("ArrowRight") || this.engine.inputCollector.key.has("KeyD")) {
             if (this.vector2d.x < this.velocity) {
                 if (this.vector2d.x_direction === -1)
                     this.vector2d.x -= this.acceleration / elapsedTime;
@@ -32,7 +32,7 @@ class PlayerGameObject extends GameObject {
             if (this.vector2d.x <= 0 && this.vector2d.x_direction === -1)
                 this.vector2d.x_direction = 1;
         }
-        if(this.engine.inputCollector.key.has("ArrowLeft")) {
+        if(this.engine.inputCollector.key.has("ArrowLeft") || this.engine.inputCollector.key.has("KeyA")) {
             if (this.vector2d.x < this.velocity) {
                 if (this.vector2d.x_direction === 1)
                     this.vector2d.x -= this.acceleration / elapsedTime;
@@ -41,7 +41,7 @@ class PlayerGameObject extends GameObject {
             if (this.vector2d.x <= 0 && this.vector2d.x_direction === 1)
                 this.vector2d.x_direction = -1;
         }
-        if(this.engine.inputCollector.key.has("ArrowUp")) {
+        if(this.engine.inputCollector.key.has("ArrowUp") || this.engine.inputCollector.key.has("KeyW")) {
             if (this.vector2d.y < this.velocity) {
                 if (this.vector2d.y_direction === 1)
                     this.vector2d.y -= this.acceleration / elapsedTime;
@@ -50,7 +50,7 @@ class PlayerGameObject extends GameObject {
             if (this.vector2d.y <= 0 && this.vector2d.y_direction === 1)
                 this.vector2d.y_direction = -1;
         }
-        if(this.engine.inputCollector.key.has("ArrowDown")) {
+        if(this.engine.inputCollector.key.has("ArrowDown") || this.engine.inputCollector.key.has("KeyS")) {
             if (this.vector2d.y < this.velocity) {
                 if (this.vector2d.y_direction === -1)
                     this.vector2d.y -= this.acceleration / elapsedTime;
